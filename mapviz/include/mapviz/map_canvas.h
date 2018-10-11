@@ -84,6 +84,13 @@ namespace mapviz
     float OffsetX() const { return offset_x_; }
     float OffsetY() const { return offset_y_; }
 
+
+    void setCanvasAbleToMove(bool assigning){
+
+      canvasAbleToMove = assigning;
+    }
+    void leaveEvent(QEvent* e);
+
     void SetViewScale(float scale)
     {
       view_scale_ = scale;
@@ -172,7 +179,7 @@ namespace mapviz
     void mouseReleaseEvent(QMouseEvent* e);
     void mouseMoveEvent(QMouseEvent* e);
     void keyPressEvent(QKeyEvent* e);
-    void leaveEvent(QEvent* e);
+    bool canvasAbleToMove = true;
 
     void Recenter();
     void TransformTarget(QPainter* painter);
